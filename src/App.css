@@ -1,9 +1,9 @@
 body {
-  font-family: "Inconsolata", monospace;
   font-family: "Open Sans", sans-serif;
   background-color: #444;
   margin: 0 auto;
   max-width: 1000px;
+  font-size: 11pt;
 }
 #content {
   min-height: 100vh;
@@ -36,21 +36,40 @@ a {
 
 #columns {
   display: flex;
-    padding: 2em;
+  padding: 2em;
 }
 
-#columns #left {
+#columns .column:first-of-type {
   width: 30%;
   display: block;
   padding-right: 2em;
 }
-#columns #right {
+#columns .column:last-of-type {
   flex-grow: 1;
   display: block;
 }
 
-.title {
+.title, .subtitle {
+  font-family: "Sono", monospace;
   font-weight: bold;
+  font-size: 14pt;
   width: 100%;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid;
+}
+.subtitle {
+  font-size: 12pt;
+  color: #666;
+  padding-top: 0.5em;
+}
+
+.skill-list {
+  display: flex;
+  gap: 0 0.5em;
+  flex-wrap: wrap;
+}
+.skill-list span:after {
+  content: ","
+}
+.skill-list span:last-of-type:after {
+  content: ""
 }

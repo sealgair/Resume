@@ -12,6 +12,25 @@ function ContactInfo({ contact_info }: {contact_info: Array<string>}) {
   );
 }
 
+type Skill = {
+  category: string, skills: Array<string>
+}
+function Skills({skill_groups}: {skill_groups: Array<Skill>}) {
+  return (
+    <div id="skills">
+      <div className="title">Skills</div>
+      {skill_groups.map((group, g) =>
+        <div className="skill-group">
+          <div className="subtitle">{group.category}</div>
+          <div className="skill-list">
+            {group.skills.map((skill, s) => <span>{skill}</span>)}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
 function App() {
   return (
     <div id="content">
@@ -23,7 +42,9 @@ function App() {
       </div>
       <ContactInfo contact_info={data.contact} />
       <div id="columns">
-        <div className="column"></div>
+        <div className="column">
+          <Skills skill_groups={data.skills}/>
+        </div>
         <div className="column"></div>
       </div>
     </div>

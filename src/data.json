@@ -7,21 +7,18 @@
     "https://github.com/sealgair"
   ],
   "skills": [
-    {"category": "languages", "skills": [
-      "Python", "Javascript", "HTML/CSS/SVG",
-      "Swift", "Objective-C", "Java", "Lua",
-      "SQL"
+    {"category": "Languages", "skills": [
+      "Python", "Javascript", "HTML", "CSS", "SVG",
+      "Swift", "Objective-C", "Java", "Lua", "SQL"
     ]},
-    {"category": "frameworks", "skills": [
-      "Django", "jQuery", "iOS", "ReactJS"
+    {"category": "Frameworks", "skills": [
+      "Django", "jQuery", "iOS", "ReactJS", "JSF", "IceFaces"
     ]},
-    {"category": "tools", "skills": [
+    {"category": "Tools", "skills": [
       "Unix", "PostgreSQL", "MySQL", "MongoDB",
       "Elasticsearch", "Amazon S3 / Cloudfront",
-      "Puppet", "Gitlab"
-    ]},
-    {"category": "disciplines", "skills": [
-      "Puppet", "Agile", "TDD", "CI"
+      "Puppet", "Gitlab", "Puppet", "Agile",
+      "TDD", "CI"
     ]}
   ],
   "education": {
