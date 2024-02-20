@@ -9,15 +9,16 @@
   "skills": [
     {"category": "Languages", "skills": [
       "Python", "Javascript", "HTML", "CSS", "SVG",
-      "Swift", "Objective-C", "Java", "Lua", "SQL"
+      "SQL", "Swift", "Objective-C", "Java", "Lua"
     ]},
     {"category": "Frameworks", "skills": [
-      "Django", "jQuery", "iOS", "ReactJS", "JSF", "IceFaces"
+      "Django", "jQuery", "iOS", "ReactJS", "JSF",
+      "ICEfaces", "Love2d", "Godot"
     ]},
-    {"category": "Tools", "skills": [
+    {"category": "Systems", "skills": [
       "Unix", "PostgreSQL", "MySQL", "MongoDB",
-      "Elasticsearch", "Amazon S3 / Cloudfront",
-      "Puppet", "Gitlab", "Puppet", "Agile",
+      "Elasticsearch", "Amazon S3 & Cloudfront",
+      "Puppet", "Gitlab", "Agile",
       "TDD", "CI"
     ]}
   ],
@@ -41,7 +42,17 @@
         {
           "name": "Senior Architect",
           "location": "Remote (Iowa City, IA)",
-          "dates": "2006-Present"
+          "dates": "2006-Present",
+          "responsibilities": [
+            "Maintained digital ecommerce site, facilitating purchase of digital comics, as well as the delivery of the digital content from Amazon S3/Cloudfront",
+            "Developed frontend features using HTML/CSS and jQuery to provide the best experience possible for our users",
+            "Engineered backend solutions for our Django ecommerce site, supporting new features",
+            "Integrated external services (such as Apple App Store and Google Play) to automatically synchronize our data across the web",
+            "Streamlined performance by identifying pain points, fine tuning database queries and slow code, effective use of caching",
+            "Overhauled out-of-date systems based on the best available tools, and lessons learned over years of active upkeep and bug fixing",
+            "Designed internal facing tools, working closely with internal customers to gather specifications and deliver the most useful solutions",
+            "Created a custom asynchronous task manager to replace Celery / RabbitMQ so that we could monitor and manage our tasks directly in the Django admin"
+          ]
         }
       ]
     }

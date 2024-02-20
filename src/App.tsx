@@ -21,9 +21,40 @@ function Skills({skill_groups}: {skill_groups: Array<Skill>}) {
       <div className="title">Skills</div>
       {skill_groups.map((group, g) =>
         <div className="skill-group">
-          <div className="subtitle">{group.category}</div>
+          <div className="sub title">{group.category}</div>
           <div className="skill-list">
             {group.skills.map((skill, s) => <span>{skill}</span>)}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+type Position = {
+  name: string, location: string, dates: string, responsibilities: Array<string>
+}
+
+type Employer = {
+  name: string, location: string, dates: string, positions: Array<Position>
+}
+
+function Employment({employers}: {employers: Array<Employer>}) {
+  return (
+    <div id="employment">
+      <div className="main title">Professional Experience</div>
+      {employers.map((employer, e) =>
+        <div className="employer">
+          <div className="title">{employer.name}</div>
+          <div className="positions">
+          {employer.positions.map((position, p) =>
+            <>
+            <div className="sub title">{position.name}</div>
+            <ul>
+              {position.responsibilities.map((line, l) => <li>{line}</li>)}
+            </ul>
+            </>
+          )}
           </div>
         </div>
       )}
@@ -46,6 +77,7 @@ function App() {
           <Skills skill_groups={data.skills}/>
         </div>
         <div className="column"></div>
+          <Employment employers={data.employers}/>
       </div>
     </div>
   );

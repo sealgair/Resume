@@ -49,17 +49,20 @@ a {
   display: block;
 }
 
-.title, .subtitle {
+.title {
   font-family: "Sono", monospace;
   font-weight: bold;
   font-size: 14pt;
   width: 100%;
   border-bottom: 2px solid;
 }
-.subtitle {
+.sub.title {
   font-size: 12pt;
   color: #666;
   padding-top: 0.5em;
+}
+.main.title {
+  font-size: 16pt;
 }
 
 .skill-list {
@@ -72,4 +75,8 @@ a {
 }
 .skill-list span:last-of-type:after {
   content: ""
+}
+
+#employment ul {
+  padding-left: 1em;
 }
