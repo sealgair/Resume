@@ -1,0 +1,52 @@
+{
+  "contact": [
+    "chase.caster@gmail.com",
+    "319-594-3774",
+    "Iowa City, IA",
+    "https://chase.caster.rocks",
+    "https://github.com/sealgair"
+  ],
+  "skills": [
+    {"category": "languages", "skills": [
+      "Python", "Javascript", "HTML/CSS/SVG",
+      "Swift", "Objective-C", "Java", "Lua",
+      "SQL"
+    ]},
+    {"category": "frameworks", "skills": [
+      "Django", "jQuery", "iOS", "ReactJS"
+    ]},
+    {"category": "tools", "skills": [
+      "Unix", "PostgreSQL", "MySQL", "MongoDB",
+      "Elasticsearch", "Amazon S3 / Cloudfront",
+      "Puppet", "Gitlab"
+    ]},
+    {"category": "disciplines", "skills": [
+      "Puppet", "Agile", "TDD", "CI"
+    ]}
+  ],
+  "education": {
+    "name": "Iowa State University",
+    "location": "Ames, IA",
+    "degree": "BS, Computer Science",
+    "dates": "2001-2005"
+  },
+  "personal": [
+    {
+      "title": "Wordle Clones"
+    }
+  ],
+  "employers": [
+    {
+      "name": "Dark Horse Comics, LLC",
+      "location": "Milwaukie, OR",
+      "dates": "2009-Present",
+      "positions": [
+        {
+          "name": "Senior Architect",
+          "location": "Remote (Iowa City, IA)",
+          "dates": "2006-Present"
+        }
+      ]
+    }
+  ]
+}
