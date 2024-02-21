@@ -4,16 +4,17 @@ import './App.css';
 import data from "./data.json"
 
 
-function ContactInfo({ contact_info }: {contact_info: Array<string>}) {
-  function format_info(info: string) {
-    if (info.includes("://")) {
-      return <a href={info}>{info.split("://")[1]}</a>
-    }
-    return <span>{info}</span>
+function format_url(info: string) {
+  if (info.includes("://")) {
+    return <a href={info}>{info.split("://")[1]}</a>
   }
+  return <span>{info}</span>
+}
+
+function ContactInfo({ contact_info }: {contact_info: Array<string>}) {
   return (
     <div id="contact">
-      {contact_info.map((info, i) => format_info(info))}
+      {contact_info.map((info, i) => format_url(info))}
     </div>
   );
 }
@@ -51,6 +52,27 @@ function EducationInfo({education}: {education: Education}) {
         <span>{education.dates}</span>
       </div>
       <div>{education.degree}</div>
+    </div>
+  )
+}
+
+type Project = {
+  name: string, url: string, description: Array<string>
+}
+
+function PersonalProjects({projects}: {projects: Array<Project>}) {
+  return (
+    <div id="personal" className="section">
+      <div className="title">Personal Projects</div>
+      {projects.map((project, p) =>
+        <div className="project">
+          <div className="sub title">{project.name}</div>
+          <div>{format_url(project.url)}</div>
+          <ul>
+            {project.description.map((line, l) => <li>{line}</li>)}
+          </ul>
+        </div>
+      )}
     </div>
   )
 }
@@ -108,6 +130,7 @@ function App() {
       <div id="columns">
         <div className="column">
           <Skills skill_groups={data.skills}/>
+          <PersonalProjects projects={data.personal}/>
           <EducationInfo education={data.education}/>
         </div>
         <div className="column"></div>

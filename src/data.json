@@ -37,46 +37,35 @@
   },
   "personal": [
     {
-      "title": "Wordle Clones",
-      "projects": [
-        {
-          "name": "Lingule",
-          "url": "https://lingule.xyz",
-          "description": [
-            "ReactJS frontend, Django backend",
-            "Heavily cached in Memcache and Cloudflare",
-            "localized in 4 Languages",
-            "1000 unique visitors a day"
-          ]
-        },
-        {
-          "name": "Novle",
-          "url": "https://novle.xyz",
-          "description": [
-            "localized in 3 Languages",
-            "50 unique visitors a day"
-          ]
-        }
+      "name": "Lingule",
+      "url": "https://lingule.xyz",
+      "description": [
+        "Wordle Clone",
+        "ReactJS frontend, Django backend",
+        "Heavily cached in Memcache and Cloudflare",
+        "localized in 4 Languages",
+        "1000 unique visitors a day"
       ]
     },
     {
-      "title": "Small Video Games",
-      "projects": [
-        {
-          "name": "Pico 8",
-          "url": "https://www.lexaloffle.com/bbs/?uid=15018",
-          "description": []
-        },
-        {
-          "name": "Godot",
-          "url": "https://github.com/sealgair/aminals2",
-          "description": []
-        },
-        {
-          "name": "Love2D",
-          "url": "https://github.com/sealgair/Jolly-Xanthar",
-          "description": []
-        }
+      "name": "Pico 8",
+      "url": "https://lexaloffle.com/bbs/?uid=15018",
+      "description": []
+    },
+    {
+      "name": "Forest Fiends",
+      "url": "https://github.com/sealgair/ForestFiends",
+      "description": [
+        "Godot (GDScript)",
+        "Work in progress"
+      ]
+    },
+    {
+      "name": "Jolly Xanthar",
+      "url": "https://github.com/sealgair/Jolly-Xanthar",
+      "description": [
+        "Love2D (Lua)",
+        "Work in progress"
       ]
     }
   ],
