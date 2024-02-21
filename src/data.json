@@ -32,7 +32,7 @@
   "education": {
     "name": "Iowa State University",
     "location": "Ames, IA",
-    "degree": "BS Computer Science",
+    "degree": "BS in Computer Science",
     "dates": "2001-2005"
   },
   "personal": [
@@ -41,7 +41,8 @@
       "url": "https://lingule.xyz",
       "description": [
         "Wordle Clone",
-        "ReactJS frontend, Django backend",
+        "ReactJS frontend",
+        "Django backend",
         "Heavily cached in Memcache and Cloudflare",
         "localized in 4 Languages",
         "1000 unique visitors a day"
@@ -49,23 +50,21 @@
     },
     {
       "name": "Pico 8",
-      "url": "https://lexaloffle.com/bbs/?uid=15018",
+      "url": "https://pico8.chase.caster.rocks",
       "description": []
     },
     {
       "name": "Forest Fiends",
       "url": "https://github.com/sealgair/ForestFiends",
       "description": [
-        "Godot (GDScript)",
-        "Work in progress"
+        "Godot (GDScript)"
       ]
     },
     {
       "name": "Jolly Xanthar",
       "url": "https://github.com/sealgair/Jolly-Xanthar",
       "description": [
-        "Love2D (Lua)",
-        "Work in progress"
+        "Love2D (Lua)"
       ]
     }
   ],
