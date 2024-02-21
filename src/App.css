@@ -46,7 +46,7 @@ a {
 }
 
 #columns .column:first-of-type {
-  width: 24em;
+  width: 30em;
   display: block;
   padding-right: 1.5em;
 }
@@ -61,6 +61,8 @@ a {
   font-size: 12pt;
   width: 100%;
   border-bottom: 2px solid;
+}
+.title, .info {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -93,7 +95,7 @@ a {
   padding-left: 1em;
   margin: 0;
 }
-.employer {
+.section {
   margin-top: 1em;
 }
 
