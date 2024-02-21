@@ -5,9 +5,15 @@ import data from "./data.json"
 
 
 function ContactInfo({ contact_info }: {contact_info: Array<string>}) {
+  function format_info(info: string) {
+    if (info.includes("://")) {
+      return <a href={info}>{info.split("://")[1]}</a>
+    }
+    return <span>{info}</span>
+  }
   return (
     <div id="contact">
-      {contact_info.map((info, i) => <span>{info}</span>)}
+      {contact_info.map((info, i) => format_info(info))}
     </div>
   );
 }
@@ -32,7 +38,7 @@ function Skills({skill_groups}: {skill_groups: Array<Skill>}) {
 }
 
 type Position = {
-  name: string, location: string, dates: string, responsibilities: Array<string>
+  name: string, location?: string, dates?: string, responsibilities: Array<string>
 }
 
 type Employer = {
@@ -45,15 +51,23 @@ function Employment({employers}: {employers: Array<Employer>}) {
       <div className="main title">Professional Experience</div>
       {employers.map((employer, e) =>
         <div className="employer">
-          <div className="title">{employer.name}</div>
+          <div className="title">
+            <span>{employer.name}</span>
+            <span>{employer.location}</span>
+            <span>{employer.dates}</span>
+          </div>
           <div className="positions">
           {employer.positions.map((position, p) =>
-            <>
-            <div className="sub title">{position.name}</div>
-            <ul>
-              {position.responsibilities.map((line, l) => <li>{line}</li>)}
-            </ul>
-            </>
+            <div className="position">
+              <div className="sub title">
+                <span>{position.name}</span>
+                <span>{position.location}</span>
+                <span>{position.dates}</span>
+              </div>
+              <ul>
+                {position.responsibilities.map((line, l) => <li>{line}</li>)}
+              </ul>
+            </div>
           )}
           </div>
         </div>
@@ -68,8 +82,9 @@ function App() {
       <div id="title">
         <h1>Chase Caster</h1>
         <h2>Senior Software Engineer</h2>
-        <h4>engineering reliable, resilient systems</h4>
-        <h4>and writing maintainable, test-driven code</h4>
+        <p id="blurb">
+        {data.blurb.map((line, b) => <span>{line}</span>)}
+        </p>
       </div>
       <ContactInfo contact_info={data.contact} />
       <div id="columns">
