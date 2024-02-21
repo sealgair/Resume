@@ -5,17 +5,17 @@ import data from "./data.json"
 import { useState } from "react"
 
 
-function format_url(info: string) {
-  if (info.includes("://")) {
-    return <a href={info}>{info.split("://")[1]}</a>
+function Url({link}: {link: string}) {
+  if (link.includes("://")) {
+    return <a href={link}>{link.split("://")[1]}</a>
   }
-  return <span>{info}</span>
+  return <span>{link}</span>
 }
 
 function ContactInfo({ contact_info }: {contact_info: Array<string>}) {
   return (
     <div id="contact">
-      {contact_info.map((info, i) => format_url(info))}
+      {contact_info.map((info, i) => <Url link={info}/>)}
     </div>
   )
 }
@@ -68,7 +68,7 @@ function PersonalProjects({projects}: {projects: Array<Project>}) {
       {projects.map((project, p) =>
         <div className="project nobreak">
           <div className="sub title">{project.name}</div>
-          <div>{format_url(project.url)}</div>
+          <div><Url link={project.url}/></div>
           <ul>
             {project.description.map((line, l) => <li>{line}</li>)}
           </ul>
