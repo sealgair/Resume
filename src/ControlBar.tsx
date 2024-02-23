@@ -1,10 +1,11 @@
 import { useState } from 'react';
 
 type ControlProps = {
-  showContact: boolean, changeShowContact: () => void
+  showContact: boolean, changeShowContact: () => void,
+  summarize: boolean, changeSummarize: () => void
 }
 
-function ControlBar({showContact, changeShowContact}: ControlProps) {
+function ControlBar({showContact, changeShowContact, summarize, changeSummarize}: ControlProps) {
   const [canHide, setCanHide] = useState(false)
   const [canUnide, setCanUnhide] = useState(false)
 
@@ -22,6 +23,10 @@ function ControlBar({showContact, changeShowContact}: ControlProps) {
 
   return (
     <div id="controls">
+      <label id="summarize">
+        Summarize Past Employment
+        <input type="checkbox" checked={summarize} onChange={changeSummarize}/>
+      </label>
       <button id="hide-selected" disabled={!canHide} onClick={() => {
         document.dispatchEvent(new Event("control:hide"))
       }}>
@@ -33,7 +38,7 @@ function ControlBar({showContact, changeShowContact}: ControlProps) {
         Unhide All
       </button>
       <label id="show-contact">
-        Contact Info
+        Show Contact Info
         <input type="checkbox" checked={showContact} onChange={changeShowContact}/>
       </label>
     </div>

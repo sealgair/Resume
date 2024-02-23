@@ -99,41 +99,71 @@ type Employer = {
   name: string, location: string, dates: string, positions: Array<Position>
 }
 
-type EmploymentProps = {
-  employers: Array<Employer>,
+function EmployerDetails({employer}: {employer: Employer}) {
+  return (
+      <Selectable className="employer section nobreak select-container">
+        <div className="title">
+          <span>{employer.name}</span>
+          <span>{employer.location}</span>
+          <span>{employer.dates}</span>
+        </div>
+        <div className="positions">
+        {employer.positions.map((position, p) =>
+          <Selectable key={p} className="position select-container">
+            <div className="sub title">
+              <span>{position.name}</span>
+              <span>{position.location}</span>
+              <span>{position.dates}</span>
+            </div>
+            <ul>
+              {position.responsibilities.map((responsibility, r) =>
+                <li key={r}>
+                  <Selectable related={responsibility.skills}>{responsibility.description}</Selectable>
+                </li>
+              )}
+            </ul>
+          </Selectable>
+        )}
+        </div>
+      </Selectable>
+  )
 }
 
-function Employment({employers}: EmploymentProps) {
-  return (
-    <div id="employment select-container">
-      <div className="main title">Professional Experience</div>
-      {employers.map((employer, e) =>
-        <Selectable key={e} className="employer section nobreak select-container">
-          <div className="title">
+type EmploymentProps = {
+  employers: Array<Employer>,
+  summarize: boolean
+}
+
+function Employment({employers, summarize}: EmploymentProps) {
+  const current = employers[0]
+  const past = employers.slice(1)
+  let pastDetails
+  if (summarize) {
+    pastDetails = (<>
+      <div className="title">Previous Employers</div>
+      {past.map((employer, e) =>
+         <Selectable key={e}>
+          <div className="sub title">
             <span>{employer.name}</span>
             <span>{employer.location}</span>
             <span>{employer.dates}</span>
           </div>
-          <div className="positions">
-          {employer.positions.map((position, p) =>
-            <Selectable key={p} className="position select-container">
-              <div className="sub title">
-                <span>{position.name}</span>
-                <span>{position.location}</span>
-                <span>{position.dates}</span>
-              </div>
-              <ul>
-                {position.responsibilities.map((responsibility, r) =>
-                  <li key={r}>
-                    <Selectable related={responsibility.skills}>{responsibility.description}</Selectable>
-                  </li>
-                )}
-              </ul>
-            </Selectable>
-          )}
-          </div>
-        </Selectable>
+          <ul>
+            {employer.positions.map((position, p) => <li>{position.name}</li>)}
+          </ul>
+         </Selectable>
       )}
+    </>)
+  } else {
+    pastDetails = past.map((employer, e) =>
+      <EmployerDetails key={e} employer={employer}/>
+    )
+  }
+  return (
+    <div id="employment select-container">
+      <div className="main title">Professional Experience</div>
+        <EmployerDetails employer={current}/>
+        {pastDetails}
     </div>
   )
 }
@@ -141,18 +171,24 @@ function Employment({employers}: EmploymentProps) {
 class App extends React.Component {
   state: {
     showContact: boolean,
+    summarize: boolean
   }
 
   constructor(props: {}) {
     super(props)
     this.state = {
       showContact: false,
+      summarize: false
     }
     this.changeShowContact = this.changeShowContact.bind(this)
+    this.changeSummarize = this.changeSummarize.bind(this)
   }
 
   changeShowContact() {
     this.setState({showContact: !this.state.showContact})
+  }
+  changeSummarize() {
+    this.setState({summarize: !this.state.summarize})
   }
 
   render() {
@@ -175,11 +211,14 @@ class App extends React.Component {
               <EducationInfo education={data.education}/>
             </div>
             <div className="column"></div>
-              <Employment employers={data.employers}/>
+              <Employment employers={data.employers} summarize={this.state.summarize}/>
           </div>
         </div>
         <ControlBar showContact={this.state.showContact}
-              changeShowContact={this.changeShowContact}/>
+              changeShowContact={this.changeShowContact}
+                      summarize={this.state.summarize}
+                changeSummarize={this.changeSummarize}
+        />
       </>)
   }
 }
