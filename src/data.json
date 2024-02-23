@@ -49,22 +49,39 @@
       ]
     },
     {
+      "name": "Novle",
+      "url": "https://novle.xyz",
+      "description": [
+        "Wordle Clone",
+        "ReactJS frontend",
+        "Django backend",
+        "Heavily cached in Memcache and Cloudflare",
+        "localized in 3 Languages",
+        "50 unique visitors a day"
+      ]
+    },
+    {
       "name": "Pico 8",
       "url": "https://pico8.chase.caster.rocks",
-      "description": []
+      "description": [
+        "Various different projects",
+        "Lua in a virtual console"
+      ]
     },
     {
       "name": "Forest Fiends",
       "url": "https://github.com/sealgair/ForestFiends",
       "description": [
-        "Godot (GDScript)"
+        "Godot (GDScript)",
+        "Simple shaders in Godot's Shading Language"
       ]
     },
     {
       "name": "Jolly Xanthar",
       "url": "https://github.com/sealgair/Jolly-Xanthar",
       "description": [
-        "Love2D (Lua)"
+        "Love2D (Lua)",
+        "GLSL shader for 3d projection using quaternions"
       ]
     }
   ],

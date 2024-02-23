@@ -1,8 +1,9 @@
 import React from 'react'
 import logo from './logo.svg'
 import './App.css'
+import Selectable from './Selectable'
+import ControlBar from './ControlBar'
 import data from "./data.json"
-import { useState } from "react"
 
 
 function Url({link}: {link: string}) {
@@ -12,10 +13,10 @@ function Url({link}: {link: string}) {
   return <span>{link}</span>
 }
 
-function ContactInfo({ contact_info }: {contact_info: Array<string>}) {
+function ContactInfo({ contactInfo }: {contactInfo: Array<string>}) {
   return (
     <div id="contact">
-      {contact_info.map((info, i) => <Url link={info}/>)}
+      {contactInfo.map((info, i) => <Url link={info}/>)}
     </div>
   )
 }
@@ -23,15 +24,15 @@ function ContactInfo({ contact_info }: {contact_info: Array<string>}) {
 type Skill = {
   category: string, skills: Array<string>
 }
-function Skills({skill_groups}: {skill_groups: Array<Skill>}) {
+function Skills({skillGroups}: {skillGroups: Array<Skill>}) {
   return (
     <div id="skills">
       <div className="title">Skills</div>
-      {skill_groups.map((group, g) =>
-        <div className="skill-group">
+      {skillGroups.map((group, g) =>
+        <div key={g} className="skill-group">
           <div className="sub title">{group.category}</div>
           <div className="skill-list">
-            {group.skills.map((skill, s) => <span>{skill}</span>)}
+            {group.skills.map((skill, s) => <span key={s}>{skill}</span>)}
           </div>
         </div>
       )}
@@ -66,13 +67,13 @@ function PersonalProjects({projects}: {projects: Array<Project>}) {
     <div id="personal" className="section">
       <div className="title">Personal Projects</div>
       {projects.map((project, p) =>
-        <div className="project nobreak">
+        <Selectable key={p} className="project nobreak select-container">
           <div className="sub title">{project.name}</div>
           <div><Url link={project.url}/></div>
           <ul>
-            {project.description.map((line, l) => <li>{line}</li>)}
+            {project.description.map((line, l) => <Selectable key={l}>{line}</Selectable>)}
           </ul>
-        </div>
+        </Selectable>
       )}
     </div>
   )
@@ -86,12 +87,16 @@ type Employer = {
   name: string, location: string, dates: string, positions: Array<Position>
 }
 
-function Employment({employers}: {employers: Array<Employer>}) {
+type EmploymentProps = {
+  employers: Array<Employer>,
+}
+
+function Employment({employers}: EmploymentProps) {
   return (
-    <div id="employment">
+    <div id="employment select-container">
       <div className="main title">Professional Experience</div>
       {employers.map((employer, e) =>
-        <div className="employer section nobreak">
+        <Selectable key={e} className="employer section nobreak select-container">
           <div className="title">
             <span>{employer.name}</span>
             <span>{employer.location}</span>
@@ -99,46 +104,37 @@ function Employment({employers}: {employers: Array<Employer>}) {
           </div>
           <div className="positions">
           {employer.positions.map((position, p) =>
-            <div className="position">
+            <Selectable key={p} className="position select-container">
               <div className="sub title">
                 <span>{position.name}</span>
                 <span>{position.location}</span>
                 <span>{position.dates}</span>
               </div>
               <ul>
-                {position.responsibilities.map((line, l) => <li>{line}</li>)}
+                {position.responsibilities.map((line, l) =>
+                  <li key={l}>
+                    <Selectable>{line}</Selectable>
+                  </li>
+                )}
               </ul>
-            </div>
+            </Selectable>
           )}
           </div>
-        </div>
+        </Selectable>
       )}
     </div>
   )
 }
 
-type ControlProps = {
-  showContact: boolean, changeShowContact: () => void
-}
-
-function ControlBar({showContact, changeShowContact}: ControlProps) {
-  return (
-    <div id="controls">
-      <label id="show-contact">
-      Contact Info
-      <input type="checkbox" checked={showContact} onChange={changeShowContact}/>
-      </label>
-    </div>
-  )
-}
-
 class App extends React.Component {
-  state: {showContact: boolean}
+  state: {
+    showContact: boolean,
+  }
 
   constructor(props: {}) {
     super(props)
     this.state = {
-      showContact: false
+      showContact: false,
     }
     this.changeShowContact = this.changeShowContact.bind(this)
   }
@@ -154,15 +150,15 @@ class App extends React.Component {
             <h1>Chase Caster</h1>
             <h2>Senior Software Engineer</h2>
             <p id="blurb">
-            {data.blurb.map((line, b) => <span>{line}</span>)}
+            {data.blurb.map((line, b) => <span key={b}>{line}</span>)}
             </p>
           </div>
           {this.state.showContact ?
-            <ContactInfo contact_info={data.contact} /> : ""
+            <ContactInfo contactInfo={data.contact} /> : ""
           }
           <div id="columns">
             <div className="column">
-              <Skills skill_groups={data.skills}/>
+              <Skills skillGroups={data.skills}/>
               <PersonalProjects projects={data.personal}/>
               <EducationInfo education={data.education}/>
             </div>

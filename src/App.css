@@ -3,6 +3,9 @@ body {
   background-color: #444;
   margin: 0 auto;
   font-size: 10pt;
+  --light-blue: #ADD8E6;
+  --med-blue: #4C4CAD;
+  --dark-blue: #353579;
 }
 #content {
   max-width: 8.5in;
@@ -43,11 +46,12 @@ a {
   display: flex;
   width: 100%;
   justify-content: space-around;
-  padding: 0.5em 0;
+  padding-top: 0.5em;
 }
 
 #columns {
   display: flex;
+  margin-top: 1em;
 }
 
 #columns .column:first-of-type {
@@ -81,7 +85,7 @@ a {
   font-size: 14pt;
 }
 .title span:first-of-type {
-  width: 50%;
+  width: 40%;
 }
 
 .skill-list {
@@ -100,29 +104,68 @@ ul {
   padding-left: 1em;
   margin: 0;
 }
+
 .section {
   margin-top: 1em;
 }
 
+.selectable {
+  cursor: pointer;
+}
+/* highlight only leaf .selectable */
+.selectable:hover:not(:has(.selectable:hover)) {
+  background-color: var(--light-blue);
+}
+.selected {
+  background-color: var(--med-blue);
+  color: white;
+}
+.selected:hover:not(:has(.selectable:hover)),
+.selected .selectable:hover:not(:has(.selectable:hover)) {
+  background-color: var(--dark-blue);
+}
+.selected .sub.title {
+  color: #CCC;
+}
+
+li:empty {
+  display: none;
+}
+/* hide containers which contain no leaf selectables */
+.select-container:not(:has(.selectable:not(.select-container))) {
+  display: none;
+}
+
 #controls {
   width: 100%;
+  font-family: "Sono", monospace;
+  font-weight: bold;
   background-color: white;
   border-top: 2px solid #333;
+  height: 4em;
   padding: 1em 3em;
   position: fixed;
   bottom:0%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 2em;
   box-sizing: border-box;
 }
 
-#print-frame {
-  position: absolute;
-  width: 8.5in;
-  height: 11in;
-  border: 2px solid darkblue;
-  top: 0;
-  left: 0;
+#controls button {
+  background-color: var(--med-blue);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: "Sono", monospace;
+  font-weight: bold;
+  cursor: pointer;
+}
+#controls button:disabled {
+  background-color: #888;
+  color: #CCC;
+  cursor: default;
 }
 
 @media print {
