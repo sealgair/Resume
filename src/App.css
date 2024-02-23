@@ -44,9 +44,14 @@ a {
   font-size: 12pt;
   margin: 0;
 }
+#blurb span {
+  white-space: nowrap;
+}
 
 #contact {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
   width: 100%;
   justify-content: space-around;
   padding-top: 0.5em;
@@ -111,14 +116,7 @@ ul {
 .selectable {
   cursor: pointer;
 }
-/* highlight only leaf .selectable */
-.selectable:hover:not(:has(.selectable:hover)),
-.selectable.highlighted:not(.selected) {
-  background-color: var(--light-blue);
-  -webkit-transition: background-color 200ms linear;
-  -ms-transition: background-color 200ms linear;
-  transition: background-color 200ms linear;
-}
+
 .selected {
   background-color: var(--med-blue);
   color: white;
@@ -126,17 +124,29 @@ ul {
   -ms-transition: background-color 200ms linear;
   transition: background-color 200ms linear;
 }
-.selected:hover:not(:has(.selectable:hover)),
-.selected .selectable:hover:not(:has(.selectable:hover)),
-.selected.highlighted,
-.selected .selectable.highlighted {
-  background-color: var(--dark-blue);
-  -webkit-transition: background-color 200ms linear;
-  -ms-transition: background-color 200ms linear;
-  transition: background-color 200ms linear;
-}
 .selected .sub.title {
   color: #CCC;
+}
+
+/* only highlight if we can hover, otherwise just select */
+@media (hover: hover) {
+  /* highlight only leaf .selectable */
+  .selectable:hover:not(:has(.selectable:hover)),
+  .selectable.highlighted:not(.selected) {
+    background-color: var(--light-blue);
+    -webkit-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+  }
+  .selected:hover:not(:has(.selectable:hover)),
+  .selected .selectable:hover:not(:has(.selectable:hover)),
+  .selected.highlighted,
+  .selected .selectable.highlighted {
+    background-color: var(--dark-blue);
+    -webkit-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+  }
 }
 
 li:empty {
@@ -153,7 +163,6 @@ li:empty {
   font-weight: bold;
   background-color: white;
   border-top: 2px solid #333;
-  height: 4em;
   padding: 1em 3em;
   position: fixed;
   bottom:0%;
@@ -161,6 +170,12 @@ li:empty {
   justify-content: flex-end;
   gap: 2em;
   box-sizing: border-box;
+  flex-wrap: wrap;
+}
+#controls #hide-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
 }
 
 #controls button {
@@ -201,4 +216,33 @@ li:empty {
 @page {
   size: 8.5in 11in;
   margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  #columns {
+    flex-direction: column-reverse;
+  }
+}
+@media only screen and (max-width: 800px) {
+  body {
+    font-size: 8pt;
+  }
+  .title {
+    font-size: 10pt;
+  }
+  .main.title {
+    font-size: 12pt;
+  }
+  .sub.title {
+    font-size: 8pt;
+  }
+  #columns .column:first-of-type {
+    width: auto;
+  }
+}
+
+@media (max-width: 8.5in) {
+  #content {
+    margin-top: 0;
+  }
 }
