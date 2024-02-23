@@ -59,7 +59,6 @@
         "CI",
         "QA",
         "i18n",
-        "Accessibility",
         "Technical Writing",
         "Documentation",
         "Leadership",
@@ -88,8 +87,7 @@
             "HTML",
             "CSS",
             "Javascript",
-            "Frontend",
-            "Accessibility"
+            "Frontend"
           ],
           "description": "ReactJS frontend"
         },
@@ -137,8 +135,7 @@
             "CSS",
             "ReactJS",
             "Javascript",
-            "Frontend",
-            "Accessibility"
+            "Frontend"
           ],
           "description": "ReactJS frontend"
         },
@@ -237,48 +234,70 @@
             {
               "description": "Maintained digital ecommerce site, facilitating purchase of digital comics, as well as the delivery of the digital content from Amazon S3/Cloudfront",
               "skills": [
+                "Python",
+                "Javascript",
                 "HTML",
                 "CSS",
-                "Javascript",
-                "jQuery",
+                "SVG",
+                "SQL",
                 "Django",
-                "Python",
-                "ECommerce",
+                "jQuery",
+                "Unix",
+                "PostgreSQL",
+                "MySQL",
+                "Elasticsearch",
                 "Amazon S3 & Cloudfront",
-                "Documentation",
+                "Puppet",
+                "Gitlab",
+                "Memcache",
+                "Agile",
                 "TDD",
                 "CI",
-                "Accessibility",
+                "QA",
                 "i18n"
               ]
             },
             {
               "description": "Developed frontend features using HTML/CSS and jQuery to provide the best experience possible for our users",
               "skills": [
+                "Javascript",
                 "HTML",
                 "CSS",
+                "SVG",
+                "Django",
                 "jQuery",
-                "Javascript",
-                "Frontend",
-                "Documentation",
-                "TDD",
-                "CI",
+                "Amazon S3 & Cloudfront",
+                "Memcache",
+                "Agile",
+                "QA",
                 "i18n",
-                "Accessibility"
+                "Requirements Gathering"
               ]
             },
             {
               "description": "Engineered backend solutions for our Django ecommerce site, supporting new features",
               "skills": [
-                "Backend",
-                "Django",
                 "Python",
+                "Javascript",
+                "HTML",
+                "CSS",
+                "SVG",
                 "SQL",
+                "Django",
+                "jQuery",
+                "Unix",
                 "PostgreSQL",
                 "MySQL",
-                "ECommerce",
+                "Amazon S3 & Cloudfront",
+                "Puppet",
+                "Gitlab",
+                "Memcache",
+                "Agile",
                 "TDD",
-                "CI"
+                "CI",
+                "QA",
+                "Documentation",
+                "Requirements Gathering"
               ]
             },
             {
@@ -286,7 +305,8 @@
               "skills": [
                 "Python",
                 "TDD",
-                "CI"
+                "CI",
+                "Agile"
               ]
             },
             {
@@ -305,35 +325,65 @@
             {
               "description": "Overhauled out-of-date systems based on the best available tools, and lessons learned over years of active upkeep and bug fixing",
               "skills": [
-                "Django",
                 "Python",
+                "Javascript",
+                "HTML",
+                "CSS",
+                "SVG",
+                "SQL",
+                "Django",
+                "jQuery",
+                "Unix",
+                "PostgreSQL",
+                "MySQL",
+                "Amazon S3 & Cloudfront",
+                "Puppet",
+                "Gitlab",
+                "Memcache",
+                "Agile",
                 "TDD",
-                "CI"
+                "CI",
+                "QA",
+                "Documentation"
               ]
             },
             {
               "description": "Designed internal facing tools, working closely with internal customers to gather specifications and deliver the most useful solutions",
               "skills": [
-                "Requirments Gathering",
-                "Frontend",
-                "Javascript",
                 "Python",
+                "Javascript",
+                "HTML",
+                "CSS",
+                "SVG",
+                "SQL",
                 "Django",
-                "Technical Writing",
+                "jQuery",
+                "iOS",
+                "Amazon S3 & Cloudfront",
+                "Puppet",
+                "Gitlab",
+                "Memcache",
+                "Agile",
                 "TDD",
-                "CI"
+                "CI",
+                "QA",
+                "Technical Writing",
+                "Documentation",
+                "Requirements Gathering"
               ]
             },
             {
               "description": "Created a custom asynchronous task manager to replace Celery / RabbitMQ so that we could monitor and manage our tasks directly in the Django admin",
               "skills": [
                 "Python",
-                "Parallel Programming",
                 "Django",
-                "Documentation",
-                "Technical Writing",
+                "Unix",
+                "Agile",
                 "TDD",
-                "CI"
+                "CI",
+                "QA",
+                "Technical Writing",
+                "Documentation"
               ]
             }
           ]
@@ -365,11 +415,28 @@
             {
               "description": "Led development of a special-case CMS solution",
               "skills": [
-                "Leadership",
                 "Python",
+                "Javascript",
+                "HTML",
+                "CSS",
+                "SQL",
                 "Django",
+                "jQuery",
+                "PostgreSQL",
+                "MySQL",
+                "Elasticsearch",
+                "Gitlab",
+                "Memcache",
+                "Agile",
                 "TDD",
-                "CI"
+                "CI",
+                "QA",
+                "i18n",
+                "MongoDB",
+                "Technical Writing",
+                "Documentation",
+                "Leadership",
+                "Training"
               ]
             }
           ]
@@ -381,11 +448,16 @@
             {
               "description": "Directed development of iOS app, including major refactors to use Core Data",
               "skills": [
-                "Leadership",
-                "Objective-C",
                 "Swift",
+                "Objective-C",
                 "iOS",
-                "Core Data"
+                "Agile",
+                "QA",
+                "i18n",
+                "Documentation",
+                "Leadership",
+                "Training",
+                "Requirements Gathering"
               ]
             }
           ]
@@ -398,7 +470,10 @@
               "description": "Learned Objective-C to create iOS app for reading digital comics",
               "skills": [
                 "Objective-C",
-                "iOS"
+                "iOS",
+                "Agile",
+                "QA",
+                "i18n"
               ]
             }
           ]
@@ -410,11 +485,26 @@
             {
               "description": "Participated in development of a green-field e-commerce website using django, which is still running today",
               "skills": [
+                "Python",
+                "Javascript",
+                "HTML",
+                "CSS",
+                "SQL",
                 "Django",
-                "Documentation",
+                "jQuery",
+                "Unix",
+                "PostgreSQL",
+                "MongoDB",
+                "Elasticsearch",
+                "Amazon S3 & Cloudfront",
+                "Memcache",
+                "Agile",
                 "TDD",
                 "CI",
-                "ECommerce"
+                "QA",
+                "i18n",
+                "Documentation",
+                "Requirements Gathering"
               ]
             }
           ]
@@ -432,17 +522,26 @@
             {
               "description": "Learned ICEFaces to create internal tool for QA team",
               "skills": [
+                "Javascript",
+                "HTML",
+                "CSS",
+                "SQL",
                 "Java",
-                "ICEFaces",
+                "JSF",
+                "TDD",
                 "QA",
-                "TDD"
+                "Technical Writing",
+                "Documentation",
+                "Requirements Gathering"
               ]
             },
             {
               "description": "Translated logic from legacy Python code to a new Java codebase",
               "skills": [
+                "Python",
                 "Java",
-                "Python"
+                "QA",
+                "Documentation"
               ]
             },
             {
@@ -468,7 +567,8 @@
               "skills": [
                 "Technical Writing",
                 "Apache Struts",
-                "Java"
+                "Java",
+                "QA"
               ]
             },
             {
