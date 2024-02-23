@@ -6,7 +6,7 @@ body {
   --light-blue: #ADD8E6;
   --med-blue: #4C4CAD;
   --dark-blue: #353579;
-  --title-font: "Silkscreen", monospace;
+  --pixel-font: "Silkscreen", monospace;
 }
 #content {
   max-width: 8.5in;
@@ -23,7 +23,7 @@ body {
   text-align: center;
 }
 h1, h2 {
-  font-family: var(--title-font);
+  font-family: var(--pixel-font);
 }
 h1, h2 {
   margin: 0;
@@ -32,7 +32,7 @@ h1 {
   font-size: 20pt;
 }
 h2 {
-  font-size: 18pt;
+  font-size: 16pt;
 }
 a {
   color: black;
@@ -59,7 +59,7 @@ a {
 
 #columns {
   display: flex;
-  margin-top: 1em;
+  margin-top: 0.5em;
 }
 
 #columns .column:first-of-type {
@@ -73,7 +73,7 @@ a {
 }
 
 .title {
-  font-family: var(--title-font);
+  font-family: var(--pixel-font);
   font-size: 12pt;
   width: 100%;
   border-bottom: 2px solid;
@@ -152,15 +152,21 @@ ul {
 li:empty {
   display: none;
 }
-/* hide containers which contain no leaf selectables */
-.select-container:not(:has(.selectable:not(.select-container))) {
-  display: none;
+
+#source {
+  font-family: var(--pixel-font);
+  display: block;
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-size: 12pt;
+  margin-bottom: 1em;
 }
 
 #controls,
 #control-spacer {
   width: 100%;
-  font-family: var(--title-font);
+  font-family: var(--pixel-font);
   font-weight: bold;
   background-color: white;
   border-top: 2px solid #333;
@@ -186,7 +192,7 @@ li:empty {
 }
 
 #controls button {
-  font-family: var(--title-font);
+  font-family: var(--pixel-font);
   background-color: var(--med-blue);
   white-space: nowrap;
   color: white;
@@ -213,7 +219,7 @@ li:empty {
   .nobreak {
     break-inside: avoid;
   }
-  #controls, #print-frame {
+  #footer {
     display: none;
   }
   #content {

@@ -217,11 +217,14 @@ class App extends React.Component {
           </div>
         </div>
       </div>
-      <ControlBar showContact={this.state.showContact}
-                  changeShowContact={this.changeShowContact}
-                  summarize={this.state.summarize}
-                  changeSummarize={this.changeSummarize}
-      />
+      <div id="footer">
+        <a id="source" href="https://github.com/sealgair/Resume" target="_new">Source Code for This Site</a>
+        <ControlBar showContact={this.state.showContact}
+                    changeShowContact={this.changeShowContact}
+                    summarize={this.state.summarize}
+                    changeSummarize={this.changeSummarize}
+        />
+      </div>
     </>)
   }
 }

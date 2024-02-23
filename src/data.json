@@ -178,7 +178,7 @@
           "skills": [
             "Lua"
           ],
-          "description": "Lua in a fantasy console"
+          "description": "Multiple projects using Pico-8 flavored Lua"
         }
       ]
     },
@@ -197,7 +197,14 @@
           "skills": [
             "GLSL"
           ],
-          "description": "Simple shaders in Godot's Shading Language"
+          "description": "Shaders for palette swapping and screen transitions"
+        },
+        {
+          "skills": [
+            "GDScript",
+            "Algorithms"
+          ],
+          "description": "A* Pathfinding AI"
         }
       ]
     },
