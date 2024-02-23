@@ -93,11 +93,8 @@ a {
   gap: 0 0.5em;
   flex-wrap: wrap;
 }
-.skill-list span:after {
+.skill-list div:not(:last-of-type):after {
   content: ","
-}
-.skill-list span:last-of-type:after {
-  content: ""
 }
 
 ul {
@@ -113,16 +110,28 @@ ul {
   cursor: pointer;
 }
 /* highlight only leaf .selectable */
-.selectable:hover:not(:has(.selectable:hover)) {
+.selectable:hover:not(:has(.selectable:hover)),
+.selectable.highlighted:not(.selected) {
   background-color: var(--light-blue);
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
 }
 .selected {
   background-color: var(--med-blue);
   color: white;
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
 }
 .selected:hover:not(:has(.selectable:hover)),
-.selected .selectable:hover:not(:has(.selectable:hover)) {
+.selected .selectable:hover:not(:has(.selectable:hover)),
+.selected.highlighted,
+.selected .selectable.highlighted {
   background-color: var(--dark-blue);
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
 }
 .selected .sub.title {
   color: #CCC;
@@ -161,11 +170,17 @@ li:empty {
   font-family: "Sono", monospace;
   font-weight: bold;
   cursor: pointer;
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
 }
 #controls button:disabled {
   background-color: #888;
   color: #CCC;
   cursor: default;
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
 }
 
 @media print {

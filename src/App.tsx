@@ -32,7 +32,9 @@ function Skills({skillGroups}: {skillGroups: Array<Skill>}) {
         <div key={g} className="skill-group">
           <div className="sub title">{group.category}</div>
           <div className="skill-list">
-            {group.skills.map((skill, s) => <span key={s}>{skill}</span>)}
+            {group.skills.map((skill, s) =>
+              <Selectable key={s} relates={skill}>{skill}</Selectable>
+            )}
           </div>
         </div>
       )}
@@ -58,8 +60,12 @@ function EducationInfo({education}: {education: Education}) {
   )
 }
 
+type Fact = {
+  description: string, skills?: Array<string>
+}
+
 type Project = {
-  name: string, url: string, description: Array<string>
+  name: string, url: string, facts: Array<Fact>
 }
 
 function PersonalProjects({projects}: {projects: Array<Project>}) {
@@ -71,7 +77,9 @@ function PersonalProjects({projects}: {projects: Array<Project>}) {
           <div className="sub title">{project.name}</div>
           <div><Url link={project.url}/></div>
           <ul>
-            {project.description.map((line, l) => <Selectable key={l}>{line}</Selectable>)}
+            {project.facts.map((fact, f) =>
+              <Selectable key={f} related={fact.skills}>{fact.description}</Selectable>
+            )}
           </ul>
         </Selectable>
       )}
@@ -79,8 +87,12 @@ function PersonalProjects({projects}: {projects: Array<Project>}) {
   )
 }
 
+type Responsibility = {
+  description: string, skills: Array<string>
+}
+
 type Position = {
-  name: string, location?: string, dates?: string, responsibilities: Array<string>
+  name: string, location?: string, dates?: string, responsibilities: Array<Responsibility>
 }
 
 type Employer = {
@@ -111,9 +123,9 @@ function Employment({employers}: EmploymentProps) {
                 <span>{position.dates}</span>
               </div>
               <ul>
-                {position.responsibilities.map((line, l) =>
-                  <li key={l}>
-                    <Selectable>{line}</Selectable>
+                {position.responsibilities.map((responsibility, r) =>
+                  <li key={r}>
+                    <Selectable related={responsibility.skills}>{responsibility.description}</Selectable>
                   </li>
                 )}
               </ul>

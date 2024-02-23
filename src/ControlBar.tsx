@@ -10,7 +10,6 @@ function ControlBar({showContact, changeShowContact}: ControlProps) {
 
   document.addEventListener("selectable:selected", (event) => {
     const selected = document.getElementsByClassName("selected")
-    console.log(selected)
     setCanHide(selected.length > 0)
   })
   document.addEventListener("control:hide", (event) => {
