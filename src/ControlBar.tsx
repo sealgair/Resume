@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, {useState} from 'react';
 
 type ControlProps = {
   showContact: boolean, changeShowContact: () => void,
@@ -21,30 +21,41 @@ function ControlBar({showContact, changeShowContact, summarize, changeSummarize}
     setCanUnhide(false)
   })
 
-  return (
-    <div id="controls">
-        <label id="show-contact">
-            Show Contact Info
-            <input type="checkbox" checked={showContact} onChange={changeShowContact}/>
-        </label>
-        <label id="summarize">
-            Summarize Past Employment
-            <input type="checkbox" checked={summarize} onChange={changeSummarize}/>
-        </label>
-        <span id="hide-buttons">
-            <button id="hide-selected" disabled={!canHide} onClick={() => {
-                    document.dispatchEvent(new Event("control:hide"))
-            }}>
-                Hide Selected
-            </button>
-            <button id="unhide-all" disabled={!canUnide} onClick={() => {
-                    document.dispatchEvent(new Event("control:unhide"))
-            }}>
-                Unhide All
-            </button>
-        </span>
-    </div>
+  const content = (<>
+
+      <label id="show-contact">
+        Show Contact Info
+        <input type="checkbox" checked={showContact} onChange={changeShowContact}/>
+      </label>
+      <label id="summarize">
+        Summarize Past Employment
+        <input type="checkbox" checked={summarize} onChange={changeSummarize}/>
+      </label>
+      <span id="hide-buttons">
+        <button id="hide-selected" disabled={!canHide} onClick={() => {
+          document.dispatchEvent(new Event("control:hide"))
+        }}>
+          Hide Selected
+        </button>
+        <button id="unhide-all" disabled={!canUnide} onClick={() => {
+          document.dispatchEvent(new Event("control:unhide"))
+        }}>
+          Unhide All
+        </button>
+      </span>
+    </>
   )
+
+  return <>
+    <div id="controls">
+      {content}
+    </div>
+    <div id="control-spacer">
+      {/*Copy content into a hidden, realtive position div to add padding
+      to the document that's the same height as the control bar*/}
+      {content}
+    </div>
+  </>
 }
 
 export default ControlBar

@@ -1,18 +1,18 @@
-import React from 'react'
+import React, {RefObject} from 'react'
 import './App.css'
 import Selectable from './Selectable'
 import ControlBar from './ControlBar'
 import data from "./data.json"
 
 
-function Url({link}: {link: string}) {
+function Url({link}: { link: string }) {
   if (link.includes("://")) {
     return <a href={link}>{link.split("://")[1]}</a>
   }
   return <span>{link}</span>
 }
 
-function ContactInfo({ contactInfo }: {contactInfo: Array<string>}) {
+function ContactInfo({contactInfo}: { contactInfo: Array<string> }) {
   return (
     <div id="contact">
       {contactInfo.map((info, i) => <Url link={info}/>)}
@@ -23,7 +23,8 @@ function ContactInfo({ contactInfo }: {contactInfo: Array<string>}) {
 type Skill = {
   category: string, skills: Array<string>
 }
-function Skills({skillGroups}: {skillGroups: Array<Skill>}) {
+
+function Skills({skillGroups}: { skillGroups: Array<Skill> }) {
   return (
     <div id="skills">
       <div className="title">Skills</div>
@@ -42,10 +43,10 @@ function Skills({skillGroups}: {skillGroups: Array<Skill>}) {
 }
 
 type Education = {
-    name: string, location: string, degree: string, dates: string,
+  name: string, location: string, degree: string, dates: string,
 }
 
-function EducationInfo({education}: {education: Education}) {
+function EducationInfo({education}: { education: Education }) {
   return (
     <div id="education" className="section nobreak">
       <div className="title">Education</div>
@@ -67,7 +68,7 @@ type Project = {
   name: string, url: string, facts: Array<Fact>
 }
 
-function PersonalProjects({projects}: {projects: Array<Project>}) {
+function PersonalProjects({projects}: { projects: Array<Project> }) {
   return (
     <div id="personal" className="section">
       <div className="title">Personal Projects</div>
@@ -98,15 +99,15 @@ type Employer = {
   name: string, location: string, dates: string, positions: Array<Position>
 }
 
-function EmployerDetails({employer}: {employer: Employer}) {
+function EmployerDetails({employer}: { employer: Employer }) {
   return (
-      <Selectable className="employer section nobreak select-container">
-        <div className="title">
-          <span>{employer.name}</span>
-          <span>{employer.location}</span>
-          <span>{employer.dates}</span>
-        </div>
-        <div className="positions">
+    <Selectable className="employer section nobreak select-container">
+      <div className="title">
+        <span>{employer.name}</span>
+        <span>{employer.location}</span>
+        <span>{employer.dates}</span>
+      </div>
+      <div className="positions">
         {employer.positions.map((position, p) =>
           <Selectable key={p} className="position select-container">
             <div className="sub title">
@@ -117,14 +118,15 @@ function EmployerDetails({employer}: {employer: Employer}) {
             <ul>
               {position.responsibilities.map((responsibility, r) =>
                 <li key={r}>
-                  <Selectable related={responsibility.skills}>{responsibility.description}</Selectable>
+                  <Selectable
+                    related={responsibility.skills}>{responsibility.description}</Selectable>
                 </li>
               )}
             </ul>
           </Selectable>
         )}
-        </div>
-      </Selectable>
+      </div>
+    </Selectable>
   )
 }
 
@@ -141,7 +143,7 @@ function Employment({employers, summarize}: EmploymentProps) {
     pastDetails = (<>
       <div className="title">Previous Employers</div>
       {past.map((employer, e) =>
-         <Selectable key={e}>
+        <Selectable key={e}>
           <div className="sub title">
             <span>{employer.name}</span>
             <span>{employer.location}</span>
@@ -150,7 +152,7 @@ function Employment({employers, summarize}: EmploymentProps) {
           <ul>
             {employer.positions.map((position, p) => <li>{position.name}</li>)}
           </ul>
-         </Selectable>
+        </Selectable>
       )}
     </>)
   } else {
@@ -161,8 +163,8 @@ function Employment({employers, summarize}: EmploymentProps) {
   return (
     <div id="employment select-container">
       <div className="main title">Professional Experience</div>
-        <EmployerDetails employer={current}/>
-        {pastDetails}
+      <EmployerDetails employer={current}/>
+      {pastDetails}
     </div>
   )
 }
@@ -186,39 +188,41 @@ class App extends React.Component {
   changeShowContact() {
     this.setState({showContact: !this.state.showContact})
   }
+
   changeSummarize() {
     this.setState({summarize: !this.state.summarize})
   }
 
   render() {
-      return (<>
-        <div id="content">
-          <div id="title">
-            <h1>Chase Caster</h1>
-            <h2>Senior Software Engineer</h2>
-            <p id="blurb">
+    return (<>
+      <div id="content">
+        <div id="title">
+          <h1>Chase Caster</h1>
+          <h2>Senior Software Engineer</h2>
+          <p id="blurb">
             {data.blurb.map((line, b) => <span key={b}>{line}</span>)}
-            </p>
+          </p>
+        </div>
+        {this.state.showContact ?
+          <ContactInfo contactInfo={data.contact}/> : ""
+        }
+        <div id="columns">
+          <div className="column">
+            <Skills skillGroups={data.skills}/>
+            <PersonalProjects projects={data.personal}/>
+            <EducationInfo education={data.education}/>
           </div>
-          {this.state.showContact ?
-            <ContactInfo contactInfo={data.contact} /> : ""
-          }
-          <div id="columns">
-            <div className="column">
-              <Skills skillGroups={data.skills}/>
-              <PersonalProjects projects={data.personal}/>
-              <EducationInfo education={data.education}/>
-            </div>
-            <div className="column"></div>
-              <Employment employers={data.employers} summarize={this.state.summarize}/>
+          <div className="column">
+            <Employment employers={data.employers} summarize={this.state.summarize}/>
           </div>
         </div>
-        <ControlBar showContact={this.state.showContact}
-              changeShowContact={this.changeShowContact}
-                      summarize={this.state.summarize}
-                changeSummarize={this.changeSummarize}
-        />
-      </>)
+      </div>
+      <ControlBar showContact={this.state.showContact}
+                  changeShowContact={this.changeShowContact}
+                  summarize={this.state.summarize}
+                  changeSummarize={this.changeSummarize}
+      />
+    </>)
   }
 }
 

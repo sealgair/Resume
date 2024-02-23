@@ -12,7 +12,7 @@ body {
   max-width: 8.5in;
   min-height: 11in;
   margin: auto;
-  margin-bottom: 5em;
+  margin-bottom: 1em;
   margin-top: 1em;
   background-color: white;
   padding: 0.5em 2em;
@@ -157,22 +157,29 @@ li:empty {
   display: none;
 }
 
-#controls {
+#controls,
+#control-spacer {
   width: 100%;
   font-family: var(--title-font);
   font-weight: bold;
   background-color: white;
   border-top: 2px solid #333;
   padding: 1em 3em;
-  position: fixed;
-  bottom:0%;
   display: flex;
   justify-content: flex-end;
   gap: 2em;
   box-sizing: border-box;
   flex-wrap: wrap;
 }
-#controls #hide-buttons {
+#controls {
+  position: fixed;
+  bottom:0;
+}
+#control-spacer {
+  visibility: hidden;
+}
+
+#hide-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 2em;
@@ -223,6 +230,7 @@ li:empty {
     flex-direction: column-reverse;
   }
 }
+
 @media only screen and (max-width: 800px) {
   body {
     font-size: 8pt;
@@ -238,11 +246,5 @@ li:empty {
   }
   #columns .column:first-of-type {
     width: auto;
-  }
-}
-
-@media (max-width: 8.5in) {
-  #content {
-    margin-top: 0;
   }
 }
