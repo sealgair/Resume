@@ -209,8 +209,8 @@ class App extends React.Component {
         <div id="columns">
           <div className="column">
             <Skills skillGroups={data.skills}/>
-            <PersonalProjects projects={data.personal}/>
             <EducationInfo education={data.education}/>
+            <PersonalProjects projects={data.personal}/>
           </div>
           <div className="column">
             <Employment employers={data.employers} summarize={this.state.summarize}/>

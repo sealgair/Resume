@@ -179,6 +179,24 @@
             "Lua"
           ],
           "description": "Multiple projects using Pico-8 flavored Lua"
+        },
+        {
+          "skills": [
+            "Lua"
+          ],
+          "description": "Masiakasaurus knopfleri: dinosaur survival game set to Dire Straits"
+        },
+        {
+          "skills": [
+            "Lua"
+          ],
+          "description": "Moq Tarnix: 4-player brawler with unique enemy AI"
+        },
+        {
+          "skills": [
+            "Lua"
+          ],
+          "description": "Aminals: fighting game with simple, diverse controls"
         }
       ]
     },
@@ -567,7 +585,7 @@
       "dates": "2007-2008",
       "positions": [
         {
-          "name": "Software Engineer",
+          "name": "Software Support Engineer",
           "responsibilities": [
             {
               "description": "Aided external customers in the extension and troubleshooting of Jive's forum software (built in Apache Struts)",
