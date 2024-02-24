@@ -252,5 +252,6 @@ li:empty {
   }
   #columns .column:first-of-type {
     width: auto;
+    max-width: 100%;
   }
 }
