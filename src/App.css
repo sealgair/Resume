@@ -92,7 +92,7 @@ a {
   font-size: 13pt;
 }
 .title span:first-of-type {
-  width: 40%;
+  width: 45%;
 }
 
 .skill-list {
@@ -151,6 +151,9 @@ ul {
 
 li:empty {
   display: none;
+}
+li p {
+  margin: 0;
 }
 
 #source {

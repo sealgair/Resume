@@ -1,4 +1,5 @@
-import React, {RefObject} from 'react'
+import React from 'react'
+import Markdown from 'react-markdown'
 import './App.css'
 import Selectable from './Selectable'
 import ControlBar from './ControlBar'
@@ -78,7 +79,11 @@ function PersonalProjects({projects}: { projects: Array<Project> }) {
           <div><Url link={project.url}/></div>
           <ul>
             {project.facts.map((fact, f) =>
-              <Selectable key={f} related={fact.skills}>{fact.description}</Selectable>
+              <li>
+                <Selectable key={f} related={fact.skills}>
+                  <Markdown>{fact.description}</Markdown>
+                </Selectable>
+              </li>
             )}
           </ul>
         </Selectable>
@@ -119,7 +124,9 @@ function EmployerDetails({employer}: { employer: Employer }) {
               {position.responsibilities.map((responsibility, r) =>
                 <li key={r}>
                   <Selectable
-                    related={responsibility.skills}>{responsibility.description}</Selectable>
+                    related={responsibility.skills}>
+                    <Markdown>{responsibility.description}</Markdown>
+                  </Selectable>
                 </li>
               )}
             </ul>
